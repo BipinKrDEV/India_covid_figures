@@ -1,0 +1,227 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    background: linear-gradient(57deg, #55ffe0 , #9136ff );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    height: 80vh;
+    width: 80%;
+    background: linear-gradient(rgba(255, 255, 255, .8), 
+    rgba(255, 255, 255, .3));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.title{
+    text-transform: uppercase;
+    padding: 10px 200px;
+    border-bottom: 2px solid #000;
+    font-weight: 600;
+    font-size: 3.2rem;
+}
+
+div.main{
+    height: 75%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cities, 
+.covid-figures{
+    width: 50%;
+    height: 90%;
+    /* background: blue; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.cities{border-right: 2px solid #000;}
+
+.cities .Search-Here,
+.covid-figures h2{
+    padding: 25px 0;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.inputs-data,
+.covid-data
+{
+    /* width: 100%; */
+    /* height: 80%; */
+    /* background: red; */
+    margin-top: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.inputCity{
+    width: 100%;
+    background: #fff;
+    border-radius: 25px;
+    padding: 0 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 2;
+    margin-top: 2.5rem;
+}
+
+#inputText{
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.8rem;
+}
+
+.inputCity i{
+    font-size: 2.25rem;
+    padding: 5px 10px 2px 0;
+}
+
+.input_label{
+    display: block;
+    position: absolute;
+    left: 14%;
+    font-size: 1.5rem;
+    color: #8590AD;
+    transition: .25s;
+}
+
+.input_label:hover{cursor: text;}
+
+.inputs-data.focus .input_label{
+    top: -75%;
+    color: #000;
+    font-size: 1.2rem;
+    
+}
+
+.submit{
+    text-transform: uppercase;
+    margin-top: 40px;
+    padding: 15px 40px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    font-size: 1.25rem;
+    font-weight: 600;
+    background: linear-gradient(to right,#4458dc 0%, #854fee 100%);
+    color: #fff;
+    order: 3;
+}
+
+.submit:hover{
+    cursor: pointer;
+    transition: .3s;
+    border: 2px solid #4458dc;
+	color: #222;
+	background-color: #fff;
+	box-shadow: none;
+	background-image: none;
+}
+
+.options-container{
+    background: #f7f6ff;
+    color: #2f3640;
+    max-height: 0; 
+    width: 100%;
+    transition: all .4s;
+    border-radius: 8px;
+    overflow: hidden;  
+    order: 1;
+}
+
+.options-container.active{
+    max-height: 300px;
+    opacity: 1;
+    overflow-y: scroll;
+    margin-bottom: 2rem;
+    /* z-index: 3; */
+}
+
+.options-container.active .cities .Search-Here{
+        display: none;
+}
+
+.options-container.active + .selected::after{
+    transition: all .5s;
+    transform: rotate(180deg);
+}
+
+
+.options-container.active::-webkit-scrollbar{
+    width: 10px;
+    background: #E4E4E4;
+    border-radius: 0 8px 8px 0;
+}
+
+.options-container.active::-webkit-scrollbar-thumb{
+    background: #9B9B9B ;
+    border-radius: 8px;
+    height: 40%;
+}
+
+.option, .selected{
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.selected{
+    background: #f7f6ff;
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    order: 0;
+    position: relative;
+    font-weight: 600;
+}
+
+.selected::after{
+    content: "";
+    background-size: contain;
+    background: url("down_arrow.svg");
+    /* background-size: cover; */
+
+    position: absolute;
+    height: 80%;
+    width: 32px;
+    size: 2rem;
+    right: 25px; 
+    top: 5px;
+    transition: .5s;
+}
+
+.options-container .option:hover{
+    background: #E9E9E9;
+}
+
+.options-container label{
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.option .radio{
+    display: none;
+}
